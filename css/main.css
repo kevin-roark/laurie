@@ -26,8 +26,9 @@ body {
 .bouncing-image {
     opacity: 0.3;
     position: absolute;
-    max-height: 300px;
-    max-width: 300px;
+    max-height: 250px;
+    max-width: 250px;
+    border: solid 1px black;
 }
 
 #whatever-bro {
