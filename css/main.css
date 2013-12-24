@@ -8,3 +8,49 @@ html, body {
 body {
     background-image: url(../img/rollerskate.jpg);
 }
+
+.container {
+    padding: 1em;
+}
+
+#chrimbas-text {
+    padding: 0;
+    font-size: 8em;
+    color: red;
+    text-align: center;
+    border-top: solid 5px green;
+    border-bottom: solid 5px green;
+    border-radius: 5px;
+}
+
+.bouncing-image {
+    opacity: 0.3;
+    position: absolute;
+    max-height: 300px;
+    max-width: 300px;
+}
+
+#whatever-bro {
+    top: 50px;
+    left: 50px;
+}
+
+#dear-deer {
+    top: 200px;
+    left: 400px;
+}
+
+#super-kawaii {
+    top: 350px;
+    left: 725px;
+}
+
+#easter {
+    top: 450px;
+    left: 1100px;
+}
+
+#nyc {
+    top: 500px;
+    left: 100px;
+}
