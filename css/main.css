@@ -51,6 +51,15 @@ body {
     font-size: 2em;
 }
 
+#dolphin {
+    z-index: -2;
+    width: 500px;
+    position: absolute;
+    right: -600px;
+    bottom: 250px;
+    opacity: 0.8;
+}
+
 .bouncing-image {
     opacity: 0.3;
     position: absolute;

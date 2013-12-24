@@ -49,6 +49,10 @@ $(function() {
         globes.push(new Globe(-10, -10));
     var nextGlobeColorIdx = -1;
 
+    var dolphin = $('#dolphin');
+    var movingDolphinLeft = true;
+    var dolphinSpeed = 4;
+
     function getRandomInt(min, max) {
       return Math.floor(Math.random() * (max - min + 1) + min);
     }
@@ -141,8 +145,40 @@ $(function() {
             globes.shift();
     }, 50);
 
+    function changeDolphinStuff() {
+        dolphinSpeed = getRandomInt(2, 25);
+        var bottom = getRandomInt(0, parseInt(window.innerHeight) - 50);
+        dolphin.css('bottom', bottom);
+        console.log(bottom);
+    }
+
+    function move_dolphin() {
+        var x = parseInt(dolphin.css('right'));
+        if (movingDolphinLeft && x > window.innerWidth + 100) {
+            movingDolphinLeft = false;
+            dolphin.css('transform', 'scaleX(-1)');
+            changeDolphinStuff();
+        }
+        else if (!movingDolphinLeft && x < -600) {
+            movingDolphinLeft = true;
+            dolphin.css('transform', '');
+            changeDolphinStuff();
+        }
+
+        var newX;
+        if (movingDolphinLeft) {
+            newX = x + dolphinSpeed;
+        }
+        else {
+            newX = x - dolphinSpeed;
+        }
+
+        dolphin.css('right', newX);
+    }
+
     setInterval(change_xmas_color, 400);
     setInterval(bounce_images, 100);
+    setInterval(move_dolphin, 40);
     $(document).mousemove(mouse_moved);
     trailLoop();
 });
