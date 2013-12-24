@@ -33,12 +33,31 @@ body {
     border-radius: 5px;
 }
 
+.writing-container {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    padding-left: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#plain-text {
+    font-size: 1.2em;
+    color: white;
+    line-height: 2em;
+}
+
+#forever {
+    font-size: 2em;
+}
+
 .bouncing-image {
     opacity: 0.3;
     position: absolute;
     max-height: 250px;
     max-width: 250px;
     border: solid 1px black;
+    z-index: -1;
 }
 
 #whatever-bro {

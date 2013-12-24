@@ -13,6 +13,7 @@ $(function() {
     })();
 
     var xmas = $('#chrimbas-text');
+    var forever = $('#forever');
     var cur_color = 'red';
     var border_color = 'green';
 
@@ -52,6 +53,11 @@ $(function() {
       return Math.floor(Math.random() * (max - min + 1) + min);
     }
 
+    function getRandomElement(a) {
+        var i = getRandomInt(0, a.length-1);
+        return a[i];
+    }
+
     function change_xmas_color() {
         border_color = cur_color;
         if (cur_color == 'red') {
@@ -63,6 +69,7 @@ $(function() {
         xmas.css('color', cur_color);
         xmas.css('border-top', 'solid 3px ' + border_color);
         xmas.css('border-bottom', 'solid 3px ' + border_color);
+        forever.css('color', getRandomElement(xmas_colors));
     }
 
     function bounce_images() {
@@ -87,8 +94,9 @@ $(function() {
 
     function draw() {
         clearCanvas();
+        var globe;
         for (var i=0; i<globes.length; i++) {
-            var globe = globes[i];
+            globe = globes[i];
             globe.draw();
         }
     }
@@ -116,7 +124,8 @@ $(function() {
     }
 
     function mouse_moved(e) {
-        globes.shift();
+        if (globes.length == 15)
+            globes.shift();
         var x = e.pageX;
         var y = e.pageY;
         globes.push(new Globe(x, y, getNextGlobeColor()));
@@ -126,6 +135,11 @@ $(function() {
         draw();
         requestAnimFrame(trailLoop);
     }
+
+    setInterval(function() {
+        if (globes.length > 1)
+            globes.shift();
+    }, 50);
 
     setInterval(change_xmas_color, 400);
     setInterval(bounce_images, 100);
